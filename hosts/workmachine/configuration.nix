@@ -109,7 +109,7 @@
   system.activationScripts.script.text = ''
     mkdir -p /var/lib/AccountsService/{icons,users}
     cp /etc/nixos/users/arteii/profilepicture.png /var/lib/AccountsService/icons/arteii
-    echo -e "[User]\nIcon=/var/lib/AccountsService/icons/arteii\n" > /var/lib/AccountsService/users/MY_USER_NAME
+    echo -e "[User]\nIcon=/var/lib/AccountsService/icons/arteii\n" > /var/lib/AccountsService/users/arteii
 
     chown root:root /var/lib/AccountsService/users/arteii
     chmod 0600 /var/lib/AccountsService/users/arteii
