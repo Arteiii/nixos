@@ -54,12 +54,16 @@
     gitkraken
 
     # misc:
+    alacritty
+    tre-command # like tree but follows gitignore
     tree
+
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
   programs.git = {
     enable = true;
-    userName = "Arteii";
+    userName = "Arteiii";
     userEmail = "ben.arteii@proto.me";
     extraConfig = {
       init.defaultBranch = "main";
@@ -74,6 +78,8 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+
+    ".config/alacritty/".source = dotfiles/.config/alacritty;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
