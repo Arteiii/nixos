@@ -50,6 +50,7 @@
     jetbrains.rust-rover
     jetbrains.pycharm-professional
     jetbrains.clion
+    jetbrains.webstorm
 
     gitkraken
 
