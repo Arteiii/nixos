@@ -99,10 +99,16 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
+
   # set prole pciture for arteii
   system.activationScripts.script.text = ''
     mkdir -p /var/lib/AccountsService/{icons,users}
-    cp /etc/nixos/users/arteii/prolepicture.png /var/lib/AccountsService/icons/arteii
+    cp /etc/nixos/users/arteii/profilepicture.png /var/lib/AccountsService/icons/arteii
     echo -e "[User]\nIcon=/var/lib/AccountsService/icons/arteii\n" > /var/lib/AccountsService/users/MY_USER_NAME
 
     chown root:root /var/lib/AccountsService/users/arteii

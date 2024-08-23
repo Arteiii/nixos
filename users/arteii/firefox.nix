@@ -44,9 +44,19 @@
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/disconnect/latest.xpi";
               installation_mode = "force_installed";
             };
+	    # I Dont Care About Cookies
+	    "jid1-KKzOGWgsW3Ao4Q@jetpack" = {
+	      install_url = "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi";
+	      installation_mode = "force_install";
+	    };
             # Ghostery
 	    "firefox@ghostery.com" = {
 	      install_url = "https://addons.mozilla.org/firefox/downloads/latest/ghostery/latest.xpi";
+	      installation_mode = "force_install";
+	    };
+	    # Unpaywall
+	    "{f209234a-76f0-4735-9920-eb62507a54cd}" = {
+	      install_url = "https://addons.mozilla.org/firefox/downloads/latest/unpaywall/latest.xpi";
 	      installation_mode = "force_install";
 	    };
             # add extensions here...
@@ -73,8 +83,14 @@
           name = "arteii";   # name as listed in about:profiles
           isDefault = true;     # can be omitted; true if profile ID is 0
           settings = {          # specify profile-specific preferences here; check about:config for options
+            "browser.theme.dark-private-windows" = true;
+            "extensions.formautofill.creditCards.enabled" = false; # Disable credit cards
+            "dom.payments.defaults.saveAddress" = false; # Disable address save
+            "ui.systemUsesDarkTheme" = 1;
             "browser.newtabpage.activity-stream.feeds.section.highlights" = false;
             "browser.startup.homepage" = "https://github.com";
+    	    "browser.link.open_newwindow" = true;
+	    "browser.in-content.dark-mode" = true;
             "browser.newtabpage.pinned" = [
 	      {
                 title = "NixOS";
@@ -87,6 +103,10 @@
 	      {
 	        title = "GitHub";
 		url = "https://github.com";
+	      }
+	      {
+	        title = "Discord";
+		url = "https://discord.com/app";
 	      }
 	    ];
             # add preferences for profile_0 here...

@@ -15,7 +15,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/workmachine/configuration.nix
-         inputs.home-manager.nixosModules.default
+        inputs.home-manager.nixosModules.default
       ];
     };
   };
