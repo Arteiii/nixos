@@ -44,20 +44,27 @@
   home.packages = with pkgs; [
     spotify
 
-    keepassxc
-
     # dev:
     jetbrains.rust-rover
     jetbrains.pycharm-professional
     jetbrains.clion
     jetbrains.webstorm
-
     gitkraken
+
+    # notes:
+    obsidian
 
     # misc:
     alacritty
     tre-command # like tree but follows gitignore
     tree
+
+    # security:
+    gnupg
+    keepassxc 
+    keybase
+    keybase-gui    
+
 
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
@@ -65,7 +72,7 @@
   programs.git = {
     enable = true;
     userName = "Arteiii";
-    userEmail = "ben.arteii@proto.me";
+    userEmail = "ben.arteii@proton.me";
     extraConfig = {
       init.defaultBranch = "main";
       core.editor = "vim";
