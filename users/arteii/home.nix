@@ -50,6 +50,10 @@
     jetbrains.clion
     jetbrains.webstorm
     gitkraken
+    # additional installs mostly for full ide support
+    rustup 
+    protobuf
+    clang
 
     # notes:
     obsidian
@@ -119,5 +123,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
+
 
 
