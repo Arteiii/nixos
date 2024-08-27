@@ -1,3 +1,7 @@
+[shell]
+program = "/home/arteii/.nix-profile/bin/zsh"
+args = ["-l"]
+
 [colors.bright]
 black = "#444b6a"
 blue = "#7da6ff"

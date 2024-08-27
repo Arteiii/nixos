@@ -43,15 +43,16 @@
   # environment.
   home.packages = with pkgs; [
     spotify
-
+caligula
     # dev:
-    jetbrains.rust-rover
-    jetbrains.pycharm-professional
-    jetbrains.clion
-    jetbrains.webstorm
+    ripgrep
+    nodejs
+    git
     gitkraken
+    libgcc
+    gnumake
+    
     # additional installs mostly for full ide support
-    rustup 
     protobuf
     clang
 
@@ -79,9 +80,11 @@
     userEmail = "ben.arteii@proton.me";
     extraConfig = {
       init.defaultBranch = "main";
-      core.editor = "vim";
+      core.editor = "nvim";
     };
   };
+
+  xsession.windowManager.command = "${pkgs.alacritty}/bin/alacritty";
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -116,9 +119,6 @@
   #
   #  /etc/profiles/per-user/arteii/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
