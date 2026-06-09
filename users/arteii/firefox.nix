@@ -28,6 +28,7 @@ in
               installation_mode = "blocked";
             };
 
+            # Darkreader
             "addon@darkreader.org" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
               installation_mode = "force_installed";
@@ -52,11 +53,6 @@ in
             # I Dont Care About Cookies
             "jid1-KKzOGWgsW3Ao4Q@jetpack" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # Ghostery
-            "firefox@ghostery.com" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ghostery/latest.xpi";
               installation_mode = "force_installed";
             };
             # Unpaywall
