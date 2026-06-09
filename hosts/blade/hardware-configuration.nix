@@ -122,7 +122,6 @@
       "nvme_core.default_ps_max_latency_us=0"
       "nowatchdog"
       "apparmor=1"
-      "security=apparmor"
     ];
   };
 
