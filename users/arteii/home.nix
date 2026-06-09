@@ -7,6 +7,7 @@
   home.homeDirectory = "/home/arteii";
 
   nixpkgs.config.allowUnfree = true;
+  security.apparmor.enable = true;
 
   imports = [
     ./firefox.nix
