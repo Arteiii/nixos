@@ -1,0 +1,7 @@
+[submodule "kernels/zen/latest-stable"]
+	path = kernels/zen/latest-stable
+	url = https://github.com/zen-kernel/zen-kernel.git
+[submodule "kernels/xanmod/latest-stable"]
+	path = kernels/xanmod/latest-stable
+	url = https://gitlab.com/xanmod/linux.git
+	branch = 7.0
