@@ -96,6 +96,7 @@
       "vfat"
       "nls_cp437"
       "evdi"
+      "apparmor"
     ];
 
     # performance tweaks
@@ -120,6 +121,8 @@
       "iommu=pt"
       "nvme_core.default_ps_max_latency_us=0"
       "nowatchdog"
+      "apparmor=1"
+      "security=apparmor"
     ];
   };
 

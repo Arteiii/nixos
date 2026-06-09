@@ -401,6 +401,10 @@
     nvtopPackages.full
     displaylink
     coreutils
+
+    apparmor-parser
+    apparmor-profiles
+    apparmor-utils
   ];
 
   # This value determines the NixOS release from which the default

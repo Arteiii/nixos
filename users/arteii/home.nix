@@ -136,7 +136,9 @@
 
     killall
     parted
+    veracrypt
 
+    bandwhich
     nethogs
     tcpdump
     tshark
