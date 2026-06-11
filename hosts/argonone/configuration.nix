@@ -132,6 +132,7 @@
       extraGroups = [
         "wheel"
         "networkmanager"
+        "media-manager"
       ];
       packages = with pkgs; [
         vim-full
@@ -150,7 +151,11 @@
     media-manager = {
       isSystemUser = true;
       description = "Storage Manager";
-      group = "media-manager";
+      group = [
+        "media-manager"
+        "wheel"
+        "networkmanager"
+      ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBL0LgBXkHnsB28rBLjL+SMErUS/BaX1mRZzDIVcvl6I blade"
       ];
