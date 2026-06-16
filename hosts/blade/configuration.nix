@@ -309,19 +309,6 @@
     };
   };
 
-  services.pipewire.wireplumber.extraConfig = {
-    "monitor.alsa.rules" = [
-      {
-        matches = [ { "node.name" = "~alsa_output.*"; } ];
-        actions = {
-          update-props = {
-            "session.suspend-timeout-seconds" = 0;
-          };
-        };
-      }
-    ];
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
