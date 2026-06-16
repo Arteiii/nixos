@@ -109,11 +109,13 @@
       "vm.transparent_hugepage_defrag" = "always";
 
       # cleaner multitasking
-      "kernel.sched_cfs_bandwidth_slice_us" = 3000;
+      "kernel.sched_cfs_bandwidth_slice_us" = 5000;
     };
 
     kernelParams = [
       "boot.shell_on_fail"
+      "snd_hda_intel.power_save=0"
+      "snd_hda_intel.power_save_controller=N"
       "i915.fastboot=1"
       "i915.enable_psr=0"
       "8250.nr_uarts=0"
