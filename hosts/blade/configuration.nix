@@ -296,7 +296,30 @@
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redene it in your config for now)
-    #media-session.enable = true;
+    media-session.enable = true;
+    extraConfig = {
+      pipewire = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 1024;
+          "default.clock.min-quantum" = 512;
+          "default.clock.max-quantum" = 2048;
+        };
+      };
+    };
+  };
+
+  services.pipewire.wireplumber.extraConfig = {
+    "monitor.alsa.rules" = [
+      {
+        matches = [ { "node.name" = "~alsa_output.*"; } ];
+        actions = {
+          update-props = {
+            "session.suspend-timeout-seconds" = 0;
+          };
+        };
+      }
+    ];
   };
 
   # Enable touchpad support (enabled default in most desktopManager).

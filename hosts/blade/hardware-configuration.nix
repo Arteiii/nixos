@@ -101,7 +101,7 @@
 
     # performance tweaks
     kernel.sysctl = {
-      "vm.swappiness" = 100;
+      "vm.swappiness" = 60;
       "vm.watermark_boost_factor" = 0;
       "vm.vfs_cache_pressure" = 50;
 
