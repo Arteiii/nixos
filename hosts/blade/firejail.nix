@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   environment.systemPackages = [
@@ -35,23 +40,23 @@
     enable = true;
     wrappedBinaries = {
       librewolf = {
-        executable = "${pkgs.librewolf}/bin/librewolf";
-        profile = "${pkgs.firejail}/etc/firejail/librewolf.profile";
+        executable = "${pkgs.firefox}/bin/firefox";
+        profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
         extraArgs = [
           "--netns=protonvpn"
           "--dns=9.9.9.9"
 
           "--private-tmp"
           "--private-dev"
-          "--private-bin=librewolf"
-
-          "--whitelist=\${HOME}/.librewolf"
-          "--whitelist=\${HOME}/Downloads"
-          "--tmpfs=\${HOME}/.cache/librewolf"
+          "--private-bin=firefox"
+          "--profile-name=privacy"
+          "--whitelist=${config.home.homeDirectory}/.mozilla/firefox/*.privacy"
+          "--whitelist=${config.home.homeDirectory}/Downloads"
 
           "--caps.drop=all"
           "--nonewprivs"
           "--noroot"
+          "--no-remote"
           "--seccomp"
           "--nogroups"
           "--dbus-user.talk=org.freedesktop.Notifications"

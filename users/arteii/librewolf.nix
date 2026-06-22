@@ -1,15 +1,6 @@
 { ... }:
 
 {
-  home.file.".local/share/applications/librewolf-sandbox.desktop".text = ''
-    [Desktop Entry]
-    Name=LibreWolf (VPN Sandbox)
-    Exec=/run/current-system/sw/bin/librewolf %u
-    Icon=librewolf
-    Terminal=true
-    Type=Application
-    Categories=Network;WebBrowser;
-  '';
 
   programs.librewolf = {
     enable = true;

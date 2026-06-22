@@ -12,6 +12,16 @@ let
   };
 in
 {
+  home.file.".local/share/applications/firefox-privacy.desktop".text = ''
+    [Desktop Entry]
+    Name=Firefox Hardened (VPN Sandbox)
+    Exec=firefox -P privacy %u
+    Icon=firefox
+    Terminal=false
+    Type=Application
+    Categories=Network;WebBrowser;
+  '';
+
   programs = {
     firefox = {
       enable = true;
@@ -19,54 +29,6 @@ in
         extraPolicies = {
           DisableTelemetry = true;
           # add policies here...
-
-          # ---- EXTENSIONS ----
-          ExtensionSettings = {
-            # blocks and purges extensions not listed here
-            # required to rmeove extensions that where lsited here before
-            "*" = {
-              installation_mode = "blocked";
-            };
-
-            # Darkreader
-            "addon@darkreader.org" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-              installation_mode = "force_installed";
-            };
-
-            "endorse-all-skills-for-linkedin@eladmizrahi" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/endorse-all-skills-for-linkedin/latest.xpi";
-              installation_mode = "force_installed";
-            };
-
-            # uBlock Origin:
-            "uBlock0@raymondhill.net" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-              installation_mode = "force_installed";
-            };
-
-            # Proton Pass:
-            "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
-              installation_mode = "force_installed";
-            };
-
-            "languagetool-webextension@languagetool.org" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # I Dont Care About Cookies
-            "jid1-KKzOGWgsW3Ao4Q@jetpack" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # Unpaywall
-            "{f209234a-76f0-4735-9920-eb62507a54cd}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/unpaywall/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # add extensions here...
-          };
 
           # ---- PREFERENCES ----
           # Set preferences shared by all profiles.
@@ -145,8 +107,93 @@ in
             "config.trim_on_minimize" = true;
             "browser.tabs.unloadOnLowMemory" = true;
           };
+
+          extensions = {
+            # blocks and purges extensions not listed here
+            # required to rmeove extensions that where lsited here before
+            "*" = {
+              installation_mode = "blocked";
+            };
+
+            # uBlock Origin:
+            "uBlock0@raymondhill.net" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+              installation_mode = "force_installed";
+            };
+
+            # Darkreader
+            "addon@darkreader.org" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+              installation_mode = "force_installed";
+            };
+
+            "endorse-all-skills-for-linkedin@eladmizrahi" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/endorse-all-skills-for-linkedin/latest.xpi";
+              installation_mode = "force_installed";
+            };
+
+            # Proton Pass:
+            "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
+              installation_mode = "force_installed";
+            };
+
+            "languagetool-webextension@languagetool.org" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi";
+              installation_mode = "force_installed";
+            };
+            # I Dont Care About Cookies
+            "jid1-KKzOGWgsW3Ao4Q@jetpack" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi";
+              installation_mode = "force_installed";
+            };
+            # Unpaywall
+            "{f209234a-76f0-4735-9920-eb62507a54cd}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/unpaywall/latest.xpi";
+              installation_mode = "force_installed";
+            };
+            # add extensions here...
+          };
         };
-        # add profiles here...
+        profiles.privacy = {
+          id = 1;
+          name = "Privacy";
+          settings = {
+            # --- Maximale Privatsphäre & Fingerprinting-Schutz ---
+            "privacy.resistFingerprinting" = true;
+            "privacy.resistFingerprinting.letterboxing" = true;
+
+            # --- Anonymitäts-Basics ---
+            "privacy.trackingprotection.enabled" = true;
+            "privacy.trackingprotection.socialtracking.enabled" = true;
+            "privacy.clearOnShutdown.history" = true;
+            "privacy.clearOnShutdown.cookies" = true;
+
+            # --- Schutz vor Leaks ---
+            "media.peerconnection.enabled" = false; # WebRTC Leak Schutz
+            "network.trr.mode" = 3; # Erzwinge DNS-over-HTTPS (Quad9)
+            "network.trr.uri" = "https://dns.quad9.net/dns-query";
+
+            # --- Telemetrie & Werbung aus ---
+            "toolkit.telemetry.enabled" = false;
+            "browser.send_pings" = false;
+            "browser.safebrowsing.malware.enabled" = false;
+            "browser.safebrowsing.phishing.enabled" = false;
+          };
+          extensions = {
+            # blocks and purges extensions not listed here
+            # required to rmeove extensions that where lsited here before
+            "*" = {
+              installation_mode = "blocked";
+            };
+
+            # uBlock Origin:
+            "uBlock0@raymondhill.net" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+              installation_mode = "force_installed";
+            };
+          };
+        };
       };
     };
   };
