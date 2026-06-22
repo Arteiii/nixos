@@ -154,7 +154,7 @@ in
             "config.trim_on_minimize" = true;
             "browser.tabs.unloadOnLowMemory" = true;
           };
-          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          extensions = with pkgs.firefox-addons; [
             ublock-origin
             darkreader
             endorse-all-skills-for-linkedin
@@ -193,7 +193,7 @@ in
             "geo.enabled" = false;
           };
 
-          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          extensions = with pkgs.firefox-addons; [
             ublock-origin
           ];
         };
