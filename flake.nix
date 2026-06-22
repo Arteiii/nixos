@@ -21,6 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     deploy-rs.url = "github:serokell/deploy-rs";
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs =
@@ -31,6 +32,7 @@
       xanmod-src,
       nixvim,
       deploy-rs,
+      nur,
       ...
     }@inputs:
     {
@@ -43,6 +45,7 @@
               { pkgs, ... }:
               {
                 environment.systemPackages = [ deploy-rs.packages.${pkgs.stdenv.hostPlatform.system}.deploy-rs ];
+                nixpkgs.overlays = [ nur.overlays.default ];
               }
             )
 
