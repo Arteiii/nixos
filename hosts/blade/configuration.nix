@@ -23,6 +23,11 @@
     nerd-fonts.jetbrains-mono
   ];
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   nix.settings = {
     experimental-features = [
       "nix-command"
