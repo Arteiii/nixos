@@ -142,7 +142,6 @@
 
     killall
     parted
-    veracrypt
 
     bandwhich
     nethogs
