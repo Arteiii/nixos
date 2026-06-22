@@ -371,7 +371,10 @@
 
   home-manager = {
     backupFileExtension = "backup";
-    sharedModules = [ inputs.nixvim.homeModules.nixvim ];
+    sharedModules = [
+      inputs.nixvim.homeModules.nixvim
+      pkgs.nur
+    ];
 
     users = {
       "arteii" = import ../../users/arteii/home.nix;
