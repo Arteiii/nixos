@@ -36,6 +36,7 @@
     ccache = true;
     permittedInsecurePackages = [
       "librewolf-151.0.2-1"
+      "librewolf-unwrapped-151.0.2-1"
     ];
   };
 
