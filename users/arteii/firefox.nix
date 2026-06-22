@@ -108,7 +108,7 @@ in
             "browser.tabs.unloadOnLowMemory" = true;
           };
 
-          extensions = {
+          extraOpts.ExtensionSettings = {
             # blocks and purges extensions not listed here
             # required to rmeove extensions that where lsited here before
             "*" = {
@@ -159,28 +159,32 @@ in
           id = 1;
           name = "Privacy";
           settings = {
-            # --- Maximale Privatsphäre & Fingerprinting-Schutz ---
+            "browser.theme.dark-private-windows" = true;
+
             "privacy.resistFingerprinting" = true;
             "privacy.resistFingerprinting.letterboxing" = true;
 
-            # --- Anonymitäts-Basics ---
             "privacy.trackingprotection.enabled" = true;
             "privacy.trackingprotection.socialtracking.enabled" = true;
             "privacy.clearOnShutdown.history" = true;
             "privacy.clearOnShutdown.cookies" = true;
 
-            # --- Schutz vor Leaks ---
             "media.peerconnection.enabled" = false; # WebRTC Leak Schutz
             "network.trr.mode" = 3; # Erzwinge DNS-over-HTTPS (Quad9)
             "network.trr.uri" = "https://dns.quad9.net/dns-query";
 
-            # --- Telemetrie & Werbung aus ---
             "toolkit.telemetry.enabled" = false;
             "browser.send_pings" = false;
             "browser.safebrowsing.malware.enabled" = false;
             "browser.safebrowsing.phishing.enabled" = false;
+
+            "network.predictor.enabled" = false;
+            "network.prefetch-next" = false;
+            "browser.places.speculativeConnect.enabled" = false;
+            "geo.enabled" = false;
           };
-          extensions = {
+
+          extraOpts.ExtensionSettings = {
             # blocks and purges extensions not listed here
             # required to rmeove extensions that where lsited here before
             "*" = {

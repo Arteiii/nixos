@@ -10,7 +10,7 @@
     (
       let
         packages = with pkgs; [
-          librewolf
+          firefox
         ];
       in
       pkgs.runCommand "firejail-icons"
