@@ -1,16 +1,11 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 
 {
   environment.systemPackages = [
     (
       let
         packages = with pkgs; [
-          firefox
+          librewolf
         ];
       in
       pkgs.runCommand "firejail-icons"
@@ -40,23 +35,23 @@
     enable = true;
     wrappedBinaries = {
       librewolf = {
-        executable = "${pkgs.firefox}/bin/firefox";
-        profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
+        executable = "${pkgs.librewolf}/bin/librewolf";
+        profile = "${pkgs.firejail}/etc/firejail/librewolf.profile";
         extraArgs = [
           "--netns=protonvpn"
           "--dns=9.9.9.9"
 
           "--private-tmp"
           "--private-dev"
-          "--private-bin=firefox"
-          "--profile-name=privacy"
-          "--whitelist=${config.home.homeDirectory}/.mozilla/firefox/*.privacy"
-          "--whitelist=${config.home.homeDirectory}/Downloads"
+          "--private-bin=librewolf"
+
+          "--whitelist=\${HOME}/.librewolf"
+          "--whitelist=\${HOME}/Downloads"
+          "--tmpfs=\${HOME}/.cache/librewolf"
 
           "--caps.drop=all"
           "--nonewprivs"
           "--noroot"
-          "--no-remote"
           "--seccomp"
           "--nogroups"
           "--dbus-user.talk=org.freedesktop.Notifications"

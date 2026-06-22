@@ -32,7 +32,12 @@
     download-buffer-size = 536870912; # 512mb
   };
 
-  nixpkgs.config.ccache = true;
+  nixpkgs.config = {
+    ccache = true;
+    permittedInsecurePackages = [
+      "librewolf-151.0.2-1"
+    ];
+  };
 
   services.samba = {
     enable = true;

@@ -15,8 +15,7 @@
     ./nvim.nix
     ./email.nix
     ./ssh.nix
-    # out of support for nix
-    # ./librewolf.nix
+    ./librewolf.nix # out of support for nix
     ./proton-pass.nix
     ../common/vscode.nix
     ../common/rustrover.nix
