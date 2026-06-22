@@ -6,7 +6,12 @@
   home.username = "arteii";
   home.homeDirectory = "/home/arteii";
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "librewolf-151.0.2-1"
+    ];
+  };
 
   imports = [
     ./firefox.nix
