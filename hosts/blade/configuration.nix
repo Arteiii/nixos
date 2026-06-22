@@ -378,7 +378,6 @@
     backupFileExtension = "backup";
     sharedModules = [
       inputs.nixvim.homeModules.nixvim
-      pkgs.nur
     ];
 
     users = {
