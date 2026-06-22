@@ -30,52 +30,52 @@ in
           DisableTelemetry = true;
           # add policies here...
 
-          ExtensionSettings = {
-            # blocks and purges extensions not listed here
-            # required to rmeove extensions that where lsited here before
-            "*" = {
-              installation_mode = "blocked";
-            };
+          # ExtensionSettings = {
+          #   # blocks and purges extensions not listed here
+          #   # required to rmeove extensions that where lsited here before
+          #   "*" = {
+          #     installation_mode = "blocked";
+          #   };
 
-            # uBlock Origin:
-            "uBlock0@raymondhill.net" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-              installation_mode = "force_installed";
-            };
+          #   # uBlock Origin:
+          #   "uBlock0@raymondhill.net" = {
+          #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          #     installation_mode = "force_installed";
+          #   };
 
-            # Darkreader
-            "addon@darkreader.org" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-              installation_mode = "force_installed";
-            };
+          #   # Darkreader
+          #   "addon@darkreader.org" = {
+          #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+          #     installation_mode = "force_installed";
+          #   };
 
-            "endorse-all-skills-for-linkedin@eladmizrahi" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/endorse-all-skills-for-linkedin/latest.xpi";
-              installation_mode = "force_installed";
-            };
+          #   "endorse-all-skills-for-linkedin@eladmizrahi" = {
+          #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/endorse-all-skills-for-linkedin/latest.xpi";
+          #     installation_mode = "force_installed";
+          #   };
 
-            # Proton Pass:
-            "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
-              installation_mode = "force_installed";
-            };
+          #   # Proton Pass:
+          #   "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
+          #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
+          #     installation_mode = "force_installed";
+          #   };
 
-            "languagetool-webextension@languagetool.org" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # I Dont Care About Cookies
-            "jid1-KKzOGWgsW3Ao4Q@jetpack" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # Unpaywall
-            "{f209234a-76f0-4735-9920-eb62507a54cd}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/unpaywall/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # add extensions here...
-          };
+          #   "languagetool-webextension@languagetool.org" = {
+          #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi";
+          #     installation_mode = "force_installed";
+          #   };
+          #   # I Dont Care About Cookies
+          #   "jid1-KKzOGWgsW3Ao4Q@jetpack" = {
+          #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi";
+          #     installation_mode = "force_installed";
+          #   };
+          #   # Unpaywall
+          #   "{f209234a-76f0-4735-9920-eb62507a54cd}" = {
+          #     install_url = "https://addons.mozilla.org/firefox/downloads/latest/unpaywall/latest.xpi";
+          #     installation_mode = "force_installed";
+          #   };
+          #   # add extensions here...
+          # };
 
           # ---- PREFERENCES ----
           # Set preferences shared by all profiles.
@@ -154,7 +154,7 @@ in
             "config.trim_on_minimize" = true;
             "browser.tabs.unloadOnLowMemory" = true;
           };
-          extensions = with pkgs.firefox-addons; [
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
             ublock-origin
             darkreader
             endorse-all-skills-for-linkedin
@@ -193,7 +193,7 @@ in
             "geo.enabled" = false;
           };
 
-          extensions = with pkgs.firefox-addons; [
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
             ublock-origin
           ];
         };
