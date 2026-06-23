@@ -34,11 +34,6 @@ in
               installation_mode = "force_installed";
             };
 
-            "endorse-all-skills-for-linkedin@eladmizrahi" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/endorse-all-skills-for-linkedin/latest.xpi";
-              installation_mode = "force_installed";
-            };
-
             # uBlock Origin:
             "uBlock0@raymondhill.net" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
