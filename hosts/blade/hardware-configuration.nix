@@ -79,6 +79,9 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
+  programs.lm_sensors.enable = true;
+  services.fancontrol.enable = true;
+
   boot = {
     initrd = {
       enable = true;
@@ -89,6 +92,9 @@
       compressorArgs = [ "-1" ];
 
       availableKernelModules = [
+        "coretemp"
+        "nct6687"
+        "it87"
         "xhci_pci"
         "nvme"
         "btrfs"
