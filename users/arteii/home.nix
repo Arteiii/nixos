@@ -21,7 +21,7 @@
     ./nvim.nix
     ./email.nix
     ./ssh.nix
-    ./librewolf.nix # out of support for nix
+    # ./librewolf.nix # out of support for nix
     ./discord.nix
     ./proton-pass.nix
     ../common/vscode.nix

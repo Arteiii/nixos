@@ -11,7 +11,7 @@
     ../../common/hardened/default.nix
     ./hardware-configuration.nix
     ./networking.nix
-    ./firejail.nix
+    # ./firejail.nix
     ./proton-vpn.nix
   ];
 
@@ -35,14 +35,6 @@
     ];
     auto-optimise-store = true;
     download-buffer-size = 536870912; # 512mb
-  };
-
-  nixpkgs.config = {
-    ccache = true;
-    permittedInsecurePackages = [
-      "librewolf-151.0.2-1"
-      "librewolf-unwrapped-151.0.2-1"
-    ];
   };
 
   services.samba = {
@@ -335,7 +327,6 @@
       "kvm"
       "ccache"
       "firejail"
-      "openrazer"
     ];
   };
 
@@ -422,13 +413,13 @@
     nvtopPackages.full
     displaylink
     coreutils
+    btop
 
     apparmor-parser
     apparmor-profiles
     apparmor-utils
 
-    polychromatic
-    openrazer-daemon
+    gnomeExtensions.vitals
   ];
 
   # This value determines the NixOS release from which the default

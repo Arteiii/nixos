@@ -12,10 +12,7 @@
     enable = true;
   };
 
-  hardware.openrazer.enable = true;
-
   services.power-profiles-daemon.enable = true;
-  services.system76-scheduler.enable = true;
   services.thermald.enable = true;
 
   services.btrfs.autoScrub = {
@@ -24,15 +21,37 @@
     fileSystems = [ "/" ];
   };
 
+  services.nbfc-linux = {
+    enable = true;
+    config = ''
+      {
+        "SelectedProfile": "Razer Blade",
+        "Profiles": [
+          {
+            "Name": "Razer Blade",
+            "FanConfigurations": [
+              {
+                "ReadWriteNode": "/sys/class/hwmon/hwmonX/pwm1",
+                "MinSpeed": 0,
+                "MaxSpeed": 255,
+                "FanSpeedSteps": [
+                  {"Temp": 45, "Speed": 0},  
+                  {"Temp": 52, "Speed": 50},  
+                  {"Temp": 60, "Speed": 80},  
+                  {"Temp": 70, "Speed": 100}  
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    '';
+  };
+
   services.hardware.bolt.enable = true;
   hardware.graphics.enable = true;
 
   hardware.nvidia.open = false;
-
-  services.xserver.videoDrivers = [
-    "nvidia"
-  ];
-
   systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
   hardware.nvidia = {
@@ -40,7 +59,7 @@
 
     powerManagement = {
       enable = true;
-      finegrained = false;
+      finegrained = true;
     };
 
     package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -122,8 +141,6 @@
       "snd_hda_intel.power_save=0"
       "snd_hda_intel.power_save_controller=N"
       "ahci.mobile_lpm_policy=3"
-
-      "i915.fastboot=1"
       "i915.enable_psr=0"
       "8250.nr_uarts=0"
       "intel_iommu=on"
