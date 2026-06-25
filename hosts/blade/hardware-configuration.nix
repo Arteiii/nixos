@@ -62,9 +62,6 @@
       compressorArgs = [ "-1" ];
 
       availableKernelModules = [
-        "coretemp"
-        "nct6687"
-        "it87"
         "xhci_pci"
         "nvme"
         "btrfs"
@@ -91,6 +88,9 @@
     };
 
     kernelModules = [
+      "coretemp"
+      "nct6687"
+      "it87"
       "kvm-intel"
       "i915"
       "vfat"
