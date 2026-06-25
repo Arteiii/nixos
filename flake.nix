@@ -35,6 +35,7 @@
       xanmod-src,
       nixvim,
       deploy-rs,
+      nbfc-linux,
       ...
     }@inputs:
     {
