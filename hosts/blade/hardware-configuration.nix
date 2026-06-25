@@ -21,33 +21,6 @@
     fileSystems = [ "/" ];
   };
 
-  services.nbfc-linux = {
-    enable = true;
-    # config = ''
-    #   {
-    #     "SelectedProfile": "Razer Blade",
-    #     "Profiles": [
-    #       {
-    #         "Name": "Razer Blade",
-    #         "FanConfigurations": [
-    #           {
-    #             "ReadWriteNode": "/sys/class/hwmon/hwmonX/pwm1",
-    #             "MinSpeed": 0,
-    #             "MaxSpeed": 255,
-    #             "FanSpeedSteps": [
-    #               {"Temp": 45, "Speed": 0},
-    #               {"Temp": 52, "Speed": 50},
-    #               {"Temp": 60, "Speed": 80},
-    #               {"Temp": 70, "Speed": 100}
-    #             ]
-    #           }
-    #         ]
-    #       }
-    #     ]
-    #   }
-    # '';
-  };
-
   services.hardware.bolt.enable = true;
   hardware.graphics.enable = true;
 
