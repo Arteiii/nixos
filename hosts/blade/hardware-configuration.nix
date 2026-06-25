@@ -79,8 +79,6 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
-  services.fancontrol.enable = true;
-
   boot = {
     initrd = {
       enable = true;

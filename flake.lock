@@ -140,6 +140,28 @@
         "type": "github"
       }
     },
+    "nbfc-linux": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgbuilds/nix",
+        "lastModified": 1781971214,
+        "narHash": "sha256-4L1CL0ELr59lZk4Gwe1Zhhpi0o+EnOL9BYFoxCgabrM=",
+        "owner": "nbfc-linux",
+        "repo": "nbfc-linux",
+        "rev": "83b74c0fff49eb409f5518fc6d04491afbebdcf9",
+        "type": "github"
+      },
+      "original": {
+        "dir": "pkgbuilds/nix",
+        "owner": "nbfc-linux",
+        "repo": "nbfc-linux",
+        "type": "github"
+      }
+    },
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -259,6 +281,7 @@
       "inputs": {
         "deploy-rs": "deploy-rs",
         "home-manager": "home-manager",
+        "nbfc-linux": "nbfc-linux",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
