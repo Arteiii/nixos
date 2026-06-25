@@ -90,7 +90,6 @@
     kernelModules = [
       "coretemp"
       "nct6687"
-      "it87"
       "kvm-intel"
       "i915"
       "vfat"
