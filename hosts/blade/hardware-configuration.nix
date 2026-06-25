@@ -79,7 +79,6 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
-  programs.lm_sensors.enable = true;
   services.fancontrol.enable = true;
 
   boot = {

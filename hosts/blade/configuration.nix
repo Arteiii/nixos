@@ -414,6 +414,7 @@
     displaylink
     coreutils
     btop
+    lm_sensors
 
     apparmor-parser
     apparmor-profiles
