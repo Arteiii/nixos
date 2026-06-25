@@ -335,6 +335,7 @@
       "kvm"
       "ccache"
       "firejail"
+      "openrazer"
     ];
   };
 
@@ -425,6 +426,9 @@
     apparmor-parser
     apparmor-profiles
     apparmor-utils
+
+    polychromatic
+    openrazer-daemon
   ];
 
   # This value determines the NixOS release from which the default

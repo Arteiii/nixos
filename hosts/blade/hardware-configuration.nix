@@ -12,9 +12,11 @@
     enable = true;
   };
 
+  hardware.openrazer.enable = true;
+
   services.power-profiles-daemon.enable = true;
   services.system76-scheduler.enable = true;
-  services.tlp.enable = false;
+  services.thermald.enable = true;
 
   services.btrfs.autoScrub = {
     enable = true;
@@ -44,9 +46,12 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
-      sync.enable = true;
-      # ensure offload mode is disabled or removed to use nvidia
-      offload.enable = false;
+      sync.enable = false;
+
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
 
       intelBusId = "PCI:0:2:0";
       nvidiaBusId = "PCI:1:0:0";
@@ -116,6 +121,8 @@
       "boot.shell_on_fail"
       "snd_hda_intel.power_save=0"
       "snd_hda_intel.power_save_controller=N"
+      "ahci.mobile_lpm_policy=3"
+
       "i915.fastboot=1"
       "i915.enable_psr=0"
       "8250.nr_uarts=0"
