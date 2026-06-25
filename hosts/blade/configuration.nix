@@ -56,6 +56,11 @@
     };
   };
 
+  services.udev.extraRules = ''
+    # allow whell razer ec acces (fan)
+    ACTION=="add", SUBSYSTEM=="platform", DRIVERS=="razer_laptop_ec", GROUP="wheel", MODE="0660"
+  '';
+
   programs.dconf.enable = true;
 
   programs.dconf.profiles.gdm.databases = [

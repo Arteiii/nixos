@@ -87,7 +87,10 @@
       };
     };
 
+    # extraModulePackages = [ config.boot.kernelPackages.razer-laptop-ec ];
+
     kernelModules = [
+      # "razer_laptop_ec"
       "coretemp"
       "nct6687"
       "kvm-intel"
