@@ -18,14 +18,6 @@
     flake = "path:/etc/nixos#${config.networking.hostName}";
 
     flags = [
-      "--update-input"
-      "nixpkgs"
-      "--update-input"
-      "home-manager"
-      "--update-input"
-      "nixvim"
-      "--update-input"
-      "nixos-wsl"
       "--commit-lock-file" # Automatically tracks version history in local Git
       "--show-trace"
     ];
