@@ -426,7 +426,7 @@
     nvtopPackages.full
     displaylink
     coreutils
-    btop
+    # btop
     # lm_sensors
 
     apparmor-parser

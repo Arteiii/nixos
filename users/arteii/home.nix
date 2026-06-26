@@ -18,9 +18,8 @@
     ./email.nix
     ./ssh.nix
     # ./librewolf.nix # out of support for nix
-    # ./discord.nix
     # ./proton-pass.nix
-    # ../common/vscode.nix
+    ../common/vscode.nix
     ../common/rustrover.nix
     ../common/clion.nix
   ];
