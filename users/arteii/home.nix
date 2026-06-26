@@ -109,7 +109,7 @@
 
       "org/gnome/shell" = {
         enabled-extensions = [
-          "vitals@corecoding.com"
+          "Vitals@CoreCoding.com"
         ];
       };
 
