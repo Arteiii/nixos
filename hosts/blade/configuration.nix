@@ -17,7 +17,7 @@
   ];
 
   system.nixos.tags = [ "Linux-${config.boot.kernelPackages.kernel.version}" ];
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
@@ -426,14 +426,16 @@
     nvtopPackages.full
     displaylink
     coreutils
-    # btop
-    # lm_sensors
+    btop
+    lm_sensors
 
     apparmor-parser
     apparmor-profiles
     apparmor-utils
 
-    # gnomeExtensions.vitals
+    gnomeExtensions.vitals
+
+    pkgs.dotnet-sdk_10 # bypass vmr local build
   ];
 
   # This value determines the NixOS release from which the default
