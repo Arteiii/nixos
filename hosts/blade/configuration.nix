@@ -432,8 +432,6 @@
     apparmor-parser
     apparmor-profiles
     apparmor-utils
-
-    gnomeExtensions.vitals
   ];
 
   # This value determines the NixOS release from which the default

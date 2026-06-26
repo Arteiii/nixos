@@ -106,6 +106,22 @@
         duration-seconds = 300;
         play-sound = true;
       };
+
+      "org/gnome/shell" = {
+        enabled-extensions = [
+          "vitals@corecoding.com"
+        ];
+      };
+
+      "org/gnome/shell/extensions/vitals" = {
+        hot-sensors = "['_processor_temperature_', '_fan_speed_']";
+
+        show-fan-speed = true;
+        show-processor = true;
+        show-temperature = true;
+
+        position-in-top-bar = 2;
+      };
     };
   };
 
@@ -162,6 +178,8 @@
     tcpdump
     tshark
     mitmproxy
+
+    gnomeExtensions.vitals
   ];
 
   programs.direnv = {
