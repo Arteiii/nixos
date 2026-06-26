@@ -102,8 +102,5 @@
 
     # increase max number of packets allowed in queue
     "net.core.netdev_max_backlog" = "5000";
-
-    # enable tcp fast open (TFO)
-    "net.ipv4.tcp_fastopen" = 1;
   };
 }
