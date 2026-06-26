@@ -435,7 +435,7 @@
 
     gnomeExtensions.vitals
 
-    pkgs.dotnet-sdk_10 # bypass vmr local build
+    dotnet-combined # bypass vmr local build
   ];
 
   # This value determines the NixOS release from which the default
