@@ -33,11 +33,6 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nbfc-linux = {
-      url = "github:nbfc-linux/nbfc-linux?dir=pkgbuilds/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

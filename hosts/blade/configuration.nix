@@ -13,7 +13,6 @@
     ./networking.nix
     # ./firejail.nix
     ./proton-vpn.nix
-    # ./nbfc.nix
   ];
 
   system.nixos.tags = [ "Linux-${config.boot.kernelPackages.kernel.version}" ];
