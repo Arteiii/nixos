@@ -87,10 +87,15 @@
       };
     };
 
+    extraModprobeConfig = ''
+      options ec_sys write_support=1
+      options nct6687 force=1
+    '';
+
     # extraModulePackages = [ config.boot.kernelPackages.razer-laptop-ec ];
 
     kernelModules = [
-      # "razer_laptop_ec"
+      "razer_laptop_ec"
       "coretemp"
       "nct6687"
       "kvm-intel"
