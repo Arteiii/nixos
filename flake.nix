@@ -3,24 +3,37 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     zen-src = {
       url = "path:/etc/nixos/kernels/zen/latest-stable";
       flake = false;
     };
+
     xanmod-src = {
       url = "path:/etc/nixos/kernels/xanmod/latest-stable";
       flake = false;
     };
+
     nixvim = {
       url = "github:nix-community/nixvim/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    deploy-rs.url = "github:serokell/deploy-rs";
+
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nbfc-linux = {
       url = "github:nbfc-linux/nbfc-linux?dir=pkgbuilds/nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,10 +44,6 @@
     {
       self,
       nixpkgs,
-      zen-src,
-      xanmod-src,
-      nixvim,
-      deploy-rs,
       ...
     }@inputs:
     {
@@ -46,7 +55,9 @@
             (
               { pkgs, ... }:
               {
-                environment.systemPackages = [ deploy-rs.packages.${pkgs.stdenv.hostPlatform.system}.deploy-rs ];
+                environment.systemPackages = [
+                  inputs.deploy-rs.packages.${pkgs.stdenv.hostPlatform.system}.deploy-rs
+                ];
               }
             )
 

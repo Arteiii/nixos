@@ -37,6 +37,8 @@
     auto-optimise-store = true;
     download-buffer-size = 536870912; # 512mb
 
+    substitute = true;
+
     substituters = [ "https://cache.nixos.org" ];
     trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
 
