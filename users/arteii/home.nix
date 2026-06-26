@@ -109,21 +109,6 @@
     };
   };
 
-  dconf.profiles.user.databases = [
-    {
-      settings = { };
-      locks = [
-        "/org/gnome/desktop/break-reminders/selected-breaks"
-        "/org/gnome/desktop/break-reminders/movement/interval-seconds"
-        "/org/gnome/desktop/break-reminders/movement/duration-seconds"
-        "/org/gnome/desktop/break-reminders/movement/play-sound"
-        "/org/gnome/desktop/break-reminders/eyesight/interval-seconds"
-        "/org/gnome/desktop/break-reminders/eyesight/duration-seconds"
-        "/org/gnome/desktop/break-reminders/eyesight/play-sound"
-      ];
-    }
-  ];
-
   gtk = {
     enable = true;
     theme = {
