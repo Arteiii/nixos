@@ -14,7 +14,7 @@
 
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${inputs.nbfc-linux.packages.x86_64-linux.default}/bin/nbfc_service --auto-fan-control";
+      ExecStart = "${inputs.nbfc-linux.packages.x86_64-linux.default}/bin/nbfc_service config --set auto";
       Restart = "always";
       RestartSec = "5";
     };
