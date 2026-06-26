@@ -8,7 +8,7 @@
 
 {
   imports = [
-    ../../common/hardened/default.nix
+    ../../common/performance/default.nix
     ./hardware-configuration.nix
     ./networking.nix
     # ./firejail.nix
