@@ -179,10 +179,12 @@
           sshUser = "dev-user";
           fastConnection = true;
           remoteBuild = true;
-          profiles.system.path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.argonone;
+          profiles.system.path = inputs.deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.argonone;
         };
       };
 
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      checks = builtins.mapAttrs (
+        system: deployLib: deployLib.deployChecks self.deploy
+      ) inputs.deploy-rs.lib;
     };
 }
