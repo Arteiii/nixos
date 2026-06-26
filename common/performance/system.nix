@@ -52,8 +52,6 @@
       "root"
       "@wheel"
     ];
-
-    sandbox = true;
   };
 
 }

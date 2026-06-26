@@ -90,17 +90,4 @@
       workstation = false;
     };
   };
-
-  boot.kernel.sysctl = {
-    # increase max network interface buffer sizes
-    "net.core.rmem_max" = 16777216;
-    "net.core.wmem_max" = 16777216;
-
-    # TCP buffer autotuning (Min, Default, Max in Bytes)
-    "net.ipv4.tcp_rmem" = "4096 87380 16777216";
-    "net.ipv4.tcp_wmem" = "4096 65536 16777216";
-
-    # increase max number of packets allowed in queue
-    "net.core.netdev_max_backlog" = "5000";
-  };
 }
