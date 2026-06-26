@@ -107,8 +107,6 @@
         play-sound = true;
       };
     };
-
-    lockAll = true;
   };
 
   gtk = {
