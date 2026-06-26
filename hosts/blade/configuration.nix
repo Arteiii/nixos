@@ -420,13 +420,13 @@
     displaylink
     coreutils
     btop
-    lm_sensors
+    # lm_sensors
 
     apparmor-parser
     apparmor-profiles
     apparmor-utils
 
-    gnomeExtensions.vitals
+    # gnomeExtensions.vitals
   ];
 
   # This value determines the NixOS release from which the default
