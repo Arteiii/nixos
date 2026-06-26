@@ -19,8 +19,8 @@
     ./ssh.nix
     # ./librewolf.nix # out of support for nix
     # ./discord.nix
-    ./proton-pass.nix
-    ../common/vscode.nix
+    # ./proton-pass.nix
+    # ../common/vscode.nix
     ../common/rustrover.nix
     ../common/clion.nix
   ];
@@ -106,9 +106,6 @@
   home.packages = with pkgs; [
     spotify
     caligula
-
-    # notes:
-    obsidian
 
     # misc:
     alacritty

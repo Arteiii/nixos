@@ -140,30 +140,10 @@
         "type": "github"
       }
     },
-    "nbfc-linux": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "dir": "pkgbuilds/nix",
-        "lastModified": 1781971214,
-        "narHash": "sha256-4L1CL0ELr59lZk4Gwe1Zhhpi0o+EnOL9BYFoxCgabrM=",
-        "owner": "nbfc-linux",
-        "repo": "nbfc-linux",
-        "rev": "83b74c0fff49eb409f5518fc6d04491afbebdcf9",
-        "type": "github"
-      },
-      "original": {
-        "dir": "pkgbuilds/nix",
-        "owner": "nbfc-linux",
-        "repo": "nbfc-linux",
-        "type": "github"
-      }
-    },
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat_2",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1781182279,
@@ -198,22 +178,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1781577229,
-        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1780243769,
         "narHash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw=",
         "owner": "NixOS",
@@ -228,7 +192,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1782188297,
         "narHash": "sha256-imdcA5fgbHK259bhHlyiiSr7bMY1AZ6onOWDdAcydc4=",
@@ -295,9 +259,8 @@
       "inputs": {
         "deploy-rs": "deploy-rs",
         "home-manager": "home-manager",
-        "nbfc-linux": "nbfc-linux",
         "nixos-wsl": "nixos-wsl",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
         "xanmod-src": "xanmod-src",
         "zen-src": "zen-src"
