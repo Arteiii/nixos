@@ -18,7 +18,7 @@
     wireless.iwd = {
       enable = true;
       settings.General = {
-        AddressRandomization = "network";
+        AddressRandomization = "disabled";
       };
     };
   };
