@@ -8,10 +8,6 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [
-      "librewolf-151.0.2-1"
-      "librewolf-unwrapped-151.0.2-1"
-    ];
   };
 
   imports = [
@@ -21,74 +17,111 @@
     ./nvim.nix
     ./email.nix
     ./ssh.nix
-    ./librewolf.nix # out of support for nix
-    ./proton-pass.nix
+    # ./librewolf.nix # out of support for nix
+    # ./proton-pass.nix
     ../common/vscode.nix
-    ../common/rustrover.nix
-    ../common/clion.nix
   ];
 
-  dconf.settings = {
-    # Dark Mode Gnome
-    "org/gnome/desktop/background" = {
-      picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
-    };
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
+  dconf = {
+    enable = true;
 
-    "org/gnome/desktop/privacy" = {
-      disable-wifi = true;
-    };
+    settings = {
+      # Dark Mode Gnome
+      "org/gnome/desktop/background" = {
+        picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
+      };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
 
-    # Make the user interface feel absolutely instant
-    "org/gnome/desktop/interface" = {
-      enable-animations = true;
-    };
+      "org/gnome/desktop/privacy" = {
+        disable-wifi = true;
+      };
 
-    # Stop the Activities Overview from lagging when you tap the Super key
-    # Disables external background indexing engines during standard shell search
-    "org/gnome/desktop/search-providers" = {
-      disable-external = true;
-      disabled = [
-        "org.gnome.Contacts.desktop"
-        "org.gnome.Characters.desktop"
-        "org.gnome.Calendar.desktop"
-      ];
-    };
+      # Make the user interface feel absolutely instant
+      "org/gnome/desktop/interface" = {
+        enable-animations = true;
+      };
 
-    "org/gnome/settings-daemon/plugins/smartcard" = {
-      active = false;
-    };
-    "org/gnome/settings-daemon/plugins/color" = {
-      active = false;
-    };
+      # Stop the Activities Overview from lagging when you tap the Super key
+      # Disables external background indexing engines during standard shell search
+      "org/gnome/desktop/search-providers" = {
+        disable-external = true;
+        disabled = [
+          "org.gnome.Contacts.desktop"
+          "org.gnome.Characters.desktop"
+          "org.gnome.Calendar.desktop"
+        ];
+      };
 
-    "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-type = "nothing";
-      sleep-inactive-battery-type = "nothing";
-    };
+      "org/gnome/settings-daemon/plugins/smartcard" = {
+        active = false;
+      };
+      "org/gnome/settings-daemon/plugins/color" = {
+        active = false;
+      };
 
-    "org/gnome/desktop/session" = {
-      idle-delay = 1200;
-    };
+      "org/gnome/settings-daemon/plugins/power" = {
+        sleep-inactive-ac-type = "nothing";
+        sleep-inactive-battery-type = "nothing";
+      };
 
-    "org/gnome/desktop/screensaver" = {
-      lock-enabled = false;
-      clock-enabled = true;
-      show-notifications = false;
-    };
+      "org/gnome/desktop/session" = {
+        idle-delay = 1200;
+      };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      binding = "<Super>s";
-      command = "systemctl suspend";
-      name = "Suspend System";
-    };
+      "org/gnome/desktop/screensaver" = {
+        lock-enabled = false;
+        clock-enabled = true;
+        show-notifications = false;
+      };
 
-    "org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-      ];
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Super>s";
+        command = "systemctl suspend";
+        name = "Suspend System";
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys" = {
+        custom-keybindings = [
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        ];
+      };
+
+      "org/gnome/desktop/break-reminders" = {
+        selected-breaks = [
+          "movement"
+          "eyesight"
+        ];
+      };
+
+      "org/gnome/desktop/break-reminders/movement" = {
+        interval-seconds = 2400;
+        duration-seconds = 300;
+        play-sound = true;
+      };
+
+      "org/gnome/desktop/break-reminders/eyesight" = {
+        interval-seconds = 2400;
+        duration-seconds = 300;
+        play-sound = true;
+      };
+
+      "org/gnome/shell" = {
+        enabled-extensions = [
+          "vitals@corecoding.com"
+        ];
+      };
+
+      "org/gnome/shell/extensions/vitals" = {
+        hot-sensors = "['_processor_temperature_', '_fan_speed_']";
+
+        show-fan-speed = true;
+        show-processor = true;
+        show-temperature = true;
+
+        position-in-top-bar = 2;
+      };
     };
   };
 
@@ -109,9 +142,6 @@
   home.packages = with pkgs; [
     spotify
     caligula
-
-    # notes:
-    obsidian
 
     # misc:
     alacritty
@@ -148,6 +178,8 @@
     tcpdump
     tshark
     mitmproxy
+
+    gnomeExtensions.vitals
   ];
 
   programs.direnv = {

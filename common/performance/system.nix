@@ -21,9 +21,9 @@
       "nowatchdog"
 
       # disables split lock detection
-      # if system stutters (audio background apps) disable it
+      # if system stutters (audio background apps) disable it if no stutters keep it on
       # - https://lwn.net/Articles/816298/
-      "split_lock_detect=off"
+      # "split_lock_detect=off"
 
       # IOMMU passthrough
       "iommu=pt"
@@ -52,8 +52,6 @@
       "root"
       "@wheel"
     ];
-
-    sandbox = true;
   };
 
 }

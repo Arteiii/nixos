@@ -18,7 +18,7 @@
     wireless.iwd = {
       enable = true;
       settings.General = {
-        AddressRandomization = "network";
+        AddressRandomization = "disabled";
       };
     };
   };
@@ -90,20 +90,20 @@
       workstation = false;
     };
   };
+  # disabled while using performance profile
+  # boot.kernel.sysctl = {
+  #   # increase max network interface buffer sizes
+  #   "net.core.rmem_max" = 16777216;
+  #   "net.core.wmem_max" = 16777216;
 
-  boot.kernel.sysctl = {
-    # increase max network interface buffer sizes
-    "net.core.rmem_max" = 16777216;
-    "net.core.wmem_max" = 16777216;
+  #   # TCP buffer autotuning (Min, Default, Max in Bytes)
+  #   "net.ipv4.tcp_rmem" = "4096 87380 16777216";
+  #   "net.ipv4.tcp_wmem" = "4096 65536 16777216";
 
-    # TCP buffer autotuning (Min, Default, Max in Bytes)
-    "net.ipv4.tcp_rmem" = "4096 87380 16777216";
-    "net.ipv4.tcp_wmem" = "4096 65536 16777216";
+  #   # increase max number of packets allowed in queue
+  #   "net.core.netdev_max_backlog" = "5000";
 
-    # increase max number of packets allowed in queue
-    "net.core.netdev_max_backlog" = "5000";
-
-    # enable tcp fast open (TFO)
-    "net.ipv4.tcp_fastopen" = 1;
-  };
+  #   # enable tcp fast open (TFO)
+  #   "net.ipv4.tcp_fastopen" = 1;
+  # };
 }

@@ -8,10 +8,10 @@
 
 {
   imports = [
-    ../../common/hardened/default.nix
+    ../../common/performance/default.nix
     ./hardware-configuration.nix
     ./networking.nix
-    ./firejail.nix
+    # ./firejail.nix
     ./proton-vpn.nix
   ];
 
@@ -23,6 +23,11 @@
     nerd-fonts.jetbrains-mono
   ];
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -30,14 +35,13 @@
     ];
     auto-optimise-store = true;
     download-buffer-size = 536870912; # 512mb
-  };
 
-  nixpkgs.config = {
-    ccache = true;
-    permittedInsecurePackages = [
-      "librewolf-151.0.2-1"
-      "librewolf-unwrapped-151.0.2-1"
-    ];
+    substitute = true;
+
+    substituters = [ "https://cache.nixos.org" ];
+    trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+
+    fallback = false;
   };
 
   services.samba = {
@@ -57,6 +61,11 @@
       };
     };
   };
+
+  services.udev.extraRules = ''
+    # allow whell razer ec acces (fan)
+    ACTION=="add", SUBSYSTEM=="platform", DRIVERS=="razer_laptop_ec", GROUP="wheel", MODE="0660"
+  '';
 
   programs.dconf.enable = true;
 
@@ -416,6 +425,8 @@
     nvtopPackages.full
     displaylink
     coreutils
+    btop
+    lm_sensors
 
     apparmor-parser
     apparmor-profiles

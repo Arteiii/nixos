@@ -22,10 +22,16 @@
       gpg.format = "ssh";
       "gpg.ssh".defaultKeyCommand = "ssh-add -L";
 
-      commit.gpgsign = true;
-
       signing = {
         signByDefault = true;
+      };
+
+      commit = {
+        gpgsign = true;
+      };
+
+      push = {
+        autoSetupRemote = true;
       };
 
       init.defaultBranch = "main";
