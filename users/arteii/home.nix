@@ -20,8 +20,6 @@
     # ./librewolf.nix # out of support for nix
     # ./proton-pass.nix
     ../common/vscode.nix
-    ../common/rustrover.nix
-    ../common/clion.nix
   ];
 
   dconf.settings = {

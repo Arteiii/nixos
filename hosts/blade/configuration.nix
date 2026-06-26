@@ -8,7 +8,7 @@
 
 {
   imports = [
-    ../../common/performance/default.nix
+    ../../common/hardened/default.nix
     ./hardware-configuration.nix
     ./networking.nix
     # ./firejail.nix
@@ -434,8 +434,6 @@
     apparmor-utils
 
     gnomeExtensions.vitals
-
-    dotnet-combined # bypass vmr local build
   ];
 
   # This value determines the NixOS release from which the default
