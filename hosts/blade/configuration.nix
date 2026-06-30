@@ -204,6 +204,7 @@
     supportedFilesystems = [
       "vfat"
       "btrfs"
+      "exfat"
     ];
 
     binfmt.emulatedSystems = [ "aarch64-linux" ];
