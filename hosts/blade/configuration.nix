@@ -432,6 +432,8 @@
     apparmor-parser
     apparmor-profiles
     apparmor-utils
+
+    _7zz
   ];
 
   # This value determines the NixOS release from which the default
