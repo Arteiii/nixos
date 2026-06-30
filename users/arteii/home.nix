@@ -180,6 +180,8 @@
     mitmproxy
 
     gnomeExtensions.vitals
+
+    _7zz
   ];
 
   programs.direnv = {
