@@ -109,7 +109,7 @@
 
       "org/gnome/shell" = {
         enabled-extensions = [
-          "vitals@corecoding.com"
+          "Vitals@CoreCoding.com"
         ];
       };
 
@@ -180,6 +180,8 @@
     mitmproxy
 
     gnomeExtensions.vitals
+
+    _7zz
   ];
 
   programs.direnv = {

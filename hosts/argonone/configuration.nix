@@ -55,6 +55,13 @@
         "netbios name" = "argonone";
         "security" = "user";
         "map to guest" = "Bad User";
+
+        "use sendfile" = "yes";
+        "strict locking" = "no";
+        "getwd cache" = "yes";
+        "min receivefile size" = "16384";
+        "aio read size" = "1";
+        "aio write size" = "1";
       };
       media = {
         "path" = "/mnt/media";
