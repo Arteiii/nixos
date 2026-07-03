@@ -13,31 +13,13 @@
         color-scheme = "prefer-dark";
       };
 
-      "org/gnome/desktop/privacy" = {
-        disable-wifi = true;
-      };
-
-      # Make the user interface feel absolutely instant
-      "org/gnome/desktop/interface" = {
-        enable-animations = true;
-      };
-
       # Stop the Activities Overview from lagging when you tap the Super key
       # Disables external background indexing engines during standard shell search
       "org/gnome/desktop/search-providers" = {
         disable-external = true;
         disabled = [
-          "org.gnome.Contacts.desktop"
           "org.gnome.Characters.desktop"
-          "org.gnome.Calendar.desktop"
         ];
-      };
-
-      "org/gnome/settings-daemon/plugins/smartcard" = {
-        active = false;
-      };
-      "org/gnome/settings-daemon/plugins/color" = {
-        active = false;
       };
 
       "org/gnome/settings-daemon/plugins/power" = {

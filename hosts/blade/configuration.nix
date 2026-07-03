@@ -89,12 +89,8 @@
       Storage=volatile
     '';
 
-    # prevents idle checks at login
-    displayManager.gdm.autoSuspend = true;
-
     # gnome virtual file system
     gvfs.enable = true;
-
     xserver.desktopManager.gnome.enable = true;
 
     gnome.core-developer-tools.enable = true;
@@ -137,16 +133,6 @@
       }
     ];
   };
-
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    gnome-user-docs
-    epiphany
-    totem
-    geary
-    evince
-    seahorse
-  ];
 
   environment.sessionVariables = {
     GS_ENABLE_GPU_ACCEL = "1";
