@@ -403,6 +403,7 @@
     displaylink
     coreutils
     btop
+    rclone
     lm_sensors
 
     apparmor-parser
