@@ -40,5 +40,5 @@
   systemd.enableEmergencyMode = false;
   environment.variables.EDITOR = "vim";
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }

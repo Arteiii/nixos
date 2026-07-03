@@ -16,7 +16,7 @@
   ];
 
   system.nixos.tags = [ "Linux-${config.boot.kernelPackages.kernel.version}" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
@@ -42,24 +42,6 @@
     trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
 
     fallback = false;
-  };
-
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      global = {
-        "workgroup" = "WORKGROUP";
-        "server string" = "smbnix";
-        "security" = "user";
-      };
-      "Videos" = {
-        "path" = "/home/arteii/Videos";
-        "browseable" = "yes";
-        "read only" = "yes";
-        "guest ok" = "no";
-      };
-    };
   };
 
   services.udev.extraRules = ''
@@ -99,6 +81,8 @@
     evolution-addressbook-factory.enable = false;
   };
 
+  programs.xwayland.enable = true;
+
   services = {
     journald.extraConfig = ''
       SystemMaxUse=100M
@@ -107,15 +91,24 @@
       Storage=volatile
     '';
 
-    # prevents idle checks at login
-    displayManager.gdm.autoSuspend = false;
+    fail2ban.enable = true;
+
+    # Enable the X11 windowing system.
+    xserver.enable = true;
+
+    # Enable the GNOME Desktop Environment.
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+
+    gnome.evolution-data-server.enable = true;
+    gnome.gnome-online-accounts.enable = true;
+    gnome.gnome-keyring.enable = true;
+
+    # gnome virtual file system
+    gvfs.enable = true;
 
     gnome.core-developer-tools.enable = true;
     gnome.games.enable = false;
-
-    gnome.gnome-keyring.enable = true;
-
-    fail2ban.enable = true;
   };
 
   security = {
@@ -151,19 +144,10 @@
     ];
   };
 
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    gnome-user-docs
-    epiphany
-    totem
-    geary
-    evince
-    seahorse
-  ];
-
   environment.sessionVariables = {
     GS_ENABLE_GPU_ACCEL = "1";
     GDK_DEBUG = "no-debug";
+    G_NETWORK_MONITOR_OVERRIDE = "base";
   };
 
   systemd = {
@@ -256,11 +240,6 @@
     };
   };
 
-  fileSystems."/etc/nixos" = {
-    device = "/home/arteii/nixos-config";
-    options = [ "bind" ];
-  };
-
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -276,16 +255,6 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
-  services.displayManager.gdm.wayland = true;
-  programs.xwayland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -427,6 +396,7 @@
     displaylink
     coreutils
     btop
+    rclone
     lm_sensors
 
     apparmor-parser
@@ -436,12 +406,5 @@
     _7zz
   ];
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like le locations and database versions
-  # on your system were taken. It‘s perfectly ne and recommended to leave
-  # this value at the release version of the rst install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man conguration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.11"; # Did you read the comment?
-
+  system.stateVersion = "26.05"; # Did you read the comment?
 }

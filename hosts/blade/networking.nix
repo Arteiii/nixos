@@ -71,14 +71,24 @@
 
   services.resolved = {
     enable = true;
-    extraConfig = ''
-      [Resolve]
-      DNSOverTLS=yes
-      MulticastDNS=no
-      DNS=9.9.9.9 149.112.112.112
-      FallbackDNS=1.1.1.1 1.0.0.1
-      Domains=fritz.box ~.
-    '';
+    settings = {
+      Resolve = {
+        DNSOverTLS = "yes";
+        MulticastDNS = "no";
+        DNS = [
+          "9.9.9.9"
+          "149.112.112.112"
+        ];
+        FallbackDNS = [
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
+        Domains = [
+          "fritz.box"
+          "~."
+        ];
+      };
+    };
   };
 
   services.avahi = {

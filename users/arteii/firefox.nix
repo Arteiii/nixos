@@ -1,5 +1,5 @@
 # https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265/7
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   lock-false = {
@@ -12,9 +12,11 @@ let
   };
 in
 {
+
   programs = {
     firefox = {
       enable = true;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
         extraPolicies = {
           DisableTelemetry = true;
@@ -48,16 +50,6 @@ in
 
             "languagetool-webextension@languagetool.org" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # I Dont Care About Cookies
-            "jid1-KKzOGWgsW3Ao4Q@jetpack" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi";
-              installation_mode = "force_installed";
-            };
-            # Unpaywall
-            "{f209234a-76f0-4735-9920-eb62507a54cd}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/unpaywall/latest.xpi";
               installation_mode = "force_installed";
             };
             # add extensions here...

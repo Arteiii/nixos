@@ -57,18 +57,27 @@
   services.resolved = {
     enable = true;
 
-    # disables DNSSEC and LLMNR
-    dnssec = "false";
-    llmnr = "false";
+    settings = {
+      Resolve = {
+        # disables DNSSEC and LLMNR
+        DNSSEC = "false";
+        LLMNR = "false";
 
-    extraConfig = ''
-      DNSOverTLS=no
-      MulticastDNS=no
-      Cache=yes
-      DNS=1.1.1.1 1.0.0.1
-      FallbackDNS=8.8.8.8 8.8.4.4
-    '';
-
-    domains = [ "~." ];
+        DNSOverTLS = "yes";
+        MulticastDNS = "no";
+        Cache = "yes";
+        DNS = [
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
+        FallbackDNS = [
+          "8.8.8.8"
+          "8.8.4.4"
+        ];
+        Domains = [
+          "~."
+        ];
+      };
+    };
   };
 }

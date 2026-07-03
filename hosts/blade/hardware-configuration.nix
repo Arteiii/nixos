@@ -58,6 +58,8 @@
       systemd.enable = true;
       systemd.tpm2.enable = true;
 
+      services.lvm.enable = true;
+
       compressor = "zstd";
       compressorArgs = [ "-1" ];
 
@@ -70,6 +72,7 @@
         "dm_crypt"
         "tpm_crb"
         "tpm_tis"
+        "dm_mod"
       ];
 
       luks.devices = {
@@ -112,9 +115,6 @@
       "vm.watermark_boost_factor" = 0;
       "vm.vfs_cache_pressure" = 50;
 
-      "vm.transparent_hugepage_enabled" = "always";
-      "vm.transparent_hugepage_defrag" = "always";
-
       # cleaner multitasking
       "kernel.sched_cfs_bandwidth_slice_us" = 5000;
     };
@@ -144,6 +144,7 @@
         "noatime"
         "discard=async"
         "space_cache=v2"
+        "x-systemd.device-timeout=infinity"
       ];
     };
     "/home" = {

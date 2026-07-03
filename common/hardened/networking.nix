@@ -119,26 +119,32 @@
     #
     # Sets fallback DNS servers natively
     # - Uses Cloudflare as backup routing layer
-    extraConfig = "
-     DNSOverTLS=yes
-     MulticastDNS=no
+    settings = {
+      Resolve = {
+        # Link-Local Multicast Name Resolution & mDNS
+        # - Stops your machine from continually leaking its local hostname out onto public Wi-Fi spaces
+        # - manual: https://www.freedesktop.org/software/systemd/man/latest/systemd-resolved.service.html
+        LLMNR = "false";
 
-     DNS=9.9.9.9 149.112.112.112
-     FallbackDNS=1.1.1.1 1.0.0.1
-    ";
+        # Drops resolution instantly if a domain's keys are broken, missing, or tampered with
+        # - reading: https://www.cloudflare.com/learning/dns/dnssec/how-dnssec-works/
+        DNSSEC = "true";
 
-    # Link-Local Multicast Name Resolution & mDNS
-    # - Stops your machine from continually leaking its local hostname out onto public Wi-Fi spaces
-    # - manual: https://www.freedesktop.org/software/systemd/man/latest/systemd-resolved.service.html
-    llmnr = "false";
-
-    # Drops resolution instantly if a domain's keys are broken, missing, or tampered with
-    # - reading: https://www.cloudflare.com/learning/dns/dnssec/how-dnssec-works/
-    dnssec = "true";
-
-    # Routes all system DNS traffic exclusively through systemd-resolved
-    # - reading: https://www.freedesktop.org/software/systemd/man/latest/systemd-resolved.service.html#Protocols%20and%20Routing
-    domains = [ "~." ];
+        DNSOverTLS = "yes";
+        MulticastDNS = "no";
+        DNS = [
+          "9.9.9.9"
+          "149.112.112.112"
+        ];
+        FallbackDNS = [
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
+        Domains = [
+          "~."
+        ];
+      };
+    };
   };
 
   # enforce modern cryptographic standards
