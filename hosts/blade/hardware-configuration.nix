@@ -159,8 +159,6 @@
         "noatime"
         "discard=async"
         "space_cache=v2"
-        "x-systemd.device-timeout=infinity"
-
       ];
     };
     "/nix" = {

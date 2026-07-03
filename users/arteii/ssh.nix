@@ -5,18 +5,14 @@
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
-      "*" = {
-        identityFile = [
-          "~/.ssh/id_ed25519"
-        ];
-        forwardAgent = false;
+    settings = {
+      ControlMaster = "auto";
+      ControlPath = "~/.ssh/sockets/%r@%h-%p";
+      ControlPersist = "10m";
 
-        extraOptions = {
-          ControlMaster = "auto";
-          ControlPath = "~/.ssh/sockets/%r@%h-%p";
-          ControlPersist = "10m";
-        };
+      "Match *" = {
+        IdentityFile = "~/.ssh/id_ed25519";
+        ForwardAgent = "no";
       };
     };
   };

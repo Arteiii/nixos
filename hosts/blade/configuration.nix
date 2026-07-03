@@ -412,12 +412,5 @@
     _7zz
   ];
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like le locations and database versions
-  # on your system were taken. It‘s perfectly ne and recommended to leave
-  # this value at the release version of the rst install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man conguration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }
