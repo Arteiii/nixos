@@ -1,22 +1,6 @@
 { pkgs, ... }:
 
 {
-  systemd.user.services.rclone-google-mount = {
-    Unit = {
-      Description = "Mount Google Drive via rclone";
-      After = [ "network-online.target" ];
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.rclone}/bin/rclone mount google: %h/GoogleDrive --vfs-cache-mode writes";
-      ExecStop = "fusermount -u %h/GoogleDrive";
-      Restart = "on-failure";
-      RestartSec = "10s";
-    };
-  };
-
   dconf = {
     enable = true;
 
