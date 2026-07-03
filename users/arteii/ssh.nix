@@ -6,11 +6,11 @@
     enableDefaultConfig = false;
 
     settings = {
-      ControlMaster = "auto";
-      ControlPath = "~/.ssh/sockets/%r@%h-%p";
-      ControlPersist = "10m";
+      "*" = {
+        ControlMaster = "auto";
+        ControlPath = "~/.ssh/sockets/%r@%h-%p";
+        ControlPersist = "10m";
 
-      "Match *" = {
         IdentityFile = "~/.ssh/id_ed25519";
         ForwardAgent = "no";
       };
