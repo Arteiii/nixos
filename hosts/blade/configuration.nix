@@ -91,7 +91,8 @@
 
     # gnome virtual file system
     gvfs.enable = true;
-    xserver.desktopManager.gnome.enable = true;
+
+    desktopManager.gnome.enable = true;
 
     gnome.core-developer-tools.enable = true;
     gnome.games.enable = false;
