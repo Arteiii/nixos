@@ -159,6 +159,8 @@
         "noatime"
         "discard=async"
         "space_cache=v2"
+        "x-systemd.device-timeout=infinity"
+
       ];
     };
     "/nix" = {
@@ -168,6 +170,8 @@
         "subvol=@nix"
         "compress=zstd"
         "noatime"
+        "x-systemd.device-timeout=infinity"
+
       ];
     };
     "/var/log" = {
@@ -178,6 +182,8 @@
         "compress=zstd:1"
         "noatime"
         "commit=60"
+        "x-systemd.device-timeout=infinity"
+
       ];
     };
     "/var/lib/libvirt/images" = {
@@ -187,6 +193,8 @@
         "subvol=@kvm"
         "noatime"
         "autodefrag"
+        "x-systemd.device-timeout=infinity"
+
       ]; # CoW disabled via chattr +C
     };
     "/var/cache/ccache" = {
@@ -197,11 +205,16 @@
         "compress=zstd"
         "noatime"
         "commit=60"
+        "x-systemd.device-timeout=infinity"
+
       ];
     };
     "/boot" = {
       device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
+      options = [
+        "x-systemd.device-timeout=infinity"
+      ];
     };
   };
 
