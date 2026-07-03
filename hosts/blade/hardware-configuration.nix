@@ -165,7 +165,6 @@
         "subvol=@nix"
         "compress=zstd"
         "bind"
-        "nofail"
         "noatime"
       ];
     };
