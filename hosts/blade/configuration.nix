@@ -244,6 +244,7 @@
 
   fileSystems."/etc/nixos" = {
     device = "/home/arteii/nixos-config";
+    fsType = "none";
     options = [ "bind" ];
   };
 

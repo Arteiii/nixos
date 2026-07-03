@@ -166,14 +166,12 @@
     "/nix" = {
       device = "/dev/mapper/vg0-root";
       fsType = "btrfs";
-      depends = [ "/home" ];
       options = [
         "subvol=@nix"
         "compress=zstd"
         "bind"
         "nofail"
         "noatime"
-        "x-systemd.device-timeout=infinity"
       ];
     };
     "/var/log" = {
@@ -184,8 +182,6 @@
         "compress=zstd:1"
         "noatime"
         "commit=60"
-        "x-systemd.device-timeout=infinity"
-
       ];
     };
     "/var/lib/libvirt/images" = {
@@ -195,8 +191,6 @@
         "subvol=@kvm"
         "noatime"
         "autodefrag"
-        "x-systemd.device-timeout=infinity"
-
       ]; # CoW disabled via chattr +C
     };
     "/var/cache/ccache" = {
@@ -207,8 +201,6 @@
         "compress=zstd"
         "noatime"
         "commit=60"
-        "x-systemd.device-timeout=infinity"
-
       ];
     };
     "/boot" = {
