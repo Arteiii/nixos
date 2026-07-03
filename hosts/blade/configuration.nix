@@ -81,6 +81,8 @@
     evolution-addressbook-factory.enable = false;
   };
 
+  programs.xwayland.enable = true;
+
   services = {
     journald.extraConfig = ''
       SystemMaxUse=100M
@@ -89,17 +91,24 @@
       Storage=volatile
     '';
 
+    fail2ban.enable = true;
+
+    # Enable the X11 windowing system.
+    xserver.enable = true;
+
+    # Enable the GNOME Desktop Environment.
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+
+    displayManager.gdm.wayland = true;
+
     # gnome virtual file system
     gvfs.enable = true;
-
-    desktopManager.gnome.enable = true;
 
     gnome.core-developer-tools.enable = true;
     gnome.games.enable = false;
 
     gnome.gnome-keyring.enable = true;
-
-    fail2ban.enable = true;
   };
 
   security = {
@@ -250,16 +259,6 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
-  services.displayManager.gdm.wayland = true;
-  programs.xwayland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
