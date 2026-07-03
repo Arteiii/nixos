@@ -61,13 +61,24 @@
     dnssec = "false";
     llmnr = "false";
 
-    extraConfig = ''
-      DNSOverTLS=no
-      MulticastDNS=no
-      Cache=yes
-      DNS=1.1.1.1 1.0.0.1
-      FallbackDNS=8.8.8.8 8.8.4.4
-    '';
+    settings = {
+      Resolve = {
+        DNSOverTLS = "yes";
+        MulticastDNS = "no";
+        Cache = "yes";
+        DNS = [
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
+        FallbackDNS = [
+          "8.8.8.8"
+          "8.8.4.4"
+        ];
+        Domains = [
+          "~."
+        ];
+      };
+    };
 
     domains = [ "~." ];
   };
