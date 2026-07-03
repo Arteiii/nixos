@@ -164,7 +164,6 @@
       options = [
         "subvol=@nix"
         "compress=zstd"
-        "bind"
         "noatime"
       ];
     };
@@ -200,9 +199,6 @@
     "/boot" = {
       device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
-      options = [
-        "x-systemd.device-timeout=infinity"
-      ];
     };
   };
 

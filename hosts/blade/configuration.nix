@@ -16,7 +16,7 @@
   ];
 
   system.nixos.tags = [ "Linux-${config.boot.kernelPackages.kernel.version}" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
