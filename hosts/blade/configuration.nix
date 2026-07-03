@@ -44,24 +44,6 @@
     fallback = false;
   };
 
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      global = {
-        "workgroup" = "WORKGROUP";
-        "server string" = "smbnix";
-        "security" = "user";
-      };
-      "Videos" = {
-        "path" = "/home/arteii/Videos";
-        "browseable" = "yes";
-        "read only" = "yes";
-        "guest ok" = "no";
-      };
-    };
-  };
-
   services.udev.extraRules = ''
     # allow whell razer ec acces (fan)
     ACTION=="add", SUBSYSTEM=="platform", DRIVERS=="razer_laptop_ec", GROUP="wheel", MODE="0660"
@@ -108,7 +90,12 @@
     '';
 
     # prevents idle checks at login
-    displayManager.gdm.autoSuspend = false;
+    displayManager.gdm.autoSuspend = true;
+
+    # gnome virtual file system
+    gvfs.enable = true;
+
+    xserver.desktopManager.gnome.enable = true;
 
     gnome.core-developer-tools.enable = true;
     gnome.games.enable = false;
