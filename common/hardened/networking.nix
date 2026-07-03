@@ -119,13 +119,23 @@
     #
     # Sets fallback DNS servers natively
     # - Uses Cloudflare as backup routing layer
-    extraConfig = "
-     DNSOverTLS=yes
-     MulticastDNS=no
-
-     DNS=9.9.9.9 149.112.112.112
-     FallbackDNS=1.1.1.1 1.0.0.1
-    ";
+    settings = {
+      Resolve = {
+        DNSOverTLS = "yes";
+        MulticastDNS = "no";
+        DNS = [
+          "9.9.9.9"
+          "149.112.112.112"
+        ];
+        FallbackDNS = [
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
+        Domains = [
+          "~."
+        ];
+      };
+    };
 
     # Link-Local Multicast Name Resolution & mDNS
     # - Stops your machine from continually leaking its local hostname out onto public Wi-Fi spaces

@@ -100,8 +100,6 @@
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
 
-    displayManager.gdm.wayland = true;
-
     gnome.evolution-data-server.enable = true;
     gnome.gnome-online-accounts.enable = true;
     gnome.gnome-keyring.enable = true;
