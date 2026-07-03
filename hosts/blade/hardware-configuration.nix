@@ -115,9 +115,6 @@
       "vm.watermark_boost_factor" = 0;
       "vm.vfs_cache_pressure" = 50;
 
-      "vm.transparent_hugepage_enabled" = "always";
-      "vm.transparent_hugepage_defrag" = "always";
-
       # cleaner multitasking
       "kernel.sched_cfs_bandwidth_slice_us" = 5000;
     };
