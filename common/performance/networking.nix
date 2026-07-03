@@ -57,12 +57,12 @@
   services.resolved = {
     enable = true;
 
-    # disables DNSSEC and LLMNR
-    dnssec = "false";
-    llmnr = "false";
-
     settings = {
       Resolve = {
+        # disables DNSSEC and LLMNR
+        DNSSEC = "false";
+        LLMNR = "false";
+
         DNSOverTLS = "yes";
         MulticastDNS = "no";
         Cache = "yes";
@@ -79,7 +79,5 @@
         ];
       };
     };
-
-    domains = [ "~." ];
   };
 }

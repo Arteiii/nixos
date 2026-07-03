@@ -121,6 +121,15 @@
     # - Uses Cloudflare as backup routing layer
     settings = {
       Resolve = {
+        # Link-Local Multicast Name Resolution & mDNS
+        # - Stops your machine from continually leaking its local hostname out onto public Wi-Fi spaces
+        # - manual: https://www.freedesktop.org/software/systemd/man/latest/systemd-resolved.service.html
+        LLMNR = "false";
+
+        # Drops resolution instantly if a domain's keys are broken, missing, or tampered with
+        # - reading: https://www.cloudflare.com/learning/dns/dnssec/how-dnssec-works/
+        DNSSEC = "true";
+
         DNSOverTLS = "yes";
         MulticastDNS = "no";
         DNS = [
@@ -136,19 +145,6 @@
         ];
       };
     };
-
-    # Link-Local Multicast Name Resolution & mDNS
-    # - Stops your machine from continually leaking its local hostname out onto public Wi-Fi spaces
-    # - manual: https://www.freedesktop.org/software/systemd/man/latest/systemd-resolved.service.html
-    llmnr = "false";
-
-    # Drops resolution instantly if a domain's keys are broken, missing, or tampered with
-    # - reading: https://www.cloudflare.com/learning/dns/dnssec/how-dnssec-works/
-    dnssec = "true";
-
-    # Routes all system DNS traffic exclusively through systemd-resolved
-    # - reading: https://www.freedesktop.org/software/systemd/man/latest/systemd-resolved.service.html#Protocols%20and%20Routing
-    domains = [ "~." ];
   };
 
   # enforce modern cryptographic standards

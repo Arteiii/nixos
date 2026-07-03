@@ -1,5 +1,5 @@
 # https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265/7
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   lock-false = {
@@ -12,9 +12,11 @@ let
   };
 in
 {
+
   programs = {
     firefox = {
       enable = true;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
         extraPolicies = {
           DisableTelemetry = true;
