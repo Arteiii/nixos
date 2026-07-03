@@ -58,6 +58,8 @@
       systemd.enable = true;
       systemd.tpm2.enable = true;
 
+      services.lvm.enable = true;
+
       compressor = "zstd";
       compressorArgs = [ "-1" ];
 
@@ -70,6 +72,7 @@
         "dm_crypt"
         "tpm_crb"
         "tpm_tis"
+        "dm_mod"
       ];
 
       luks.devices = {
@@ -144,6 +147,7 @@
         "noatime"
         "discard=async"
         "space_cache=v2"
+        "x-systemd.device-timeout=infinity"
       ];
     };
     "/home" = {

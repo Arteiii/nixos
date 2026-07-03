@@ -1,8 +1,8 @@
 {
-  description = "Nixos config flake - Updated 25.11";
+  description = "Nixos config flake - Updated 26.05";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL/main";
@@ -10,7 +10,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -25,7 +25,7 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11";
+      url = "github:nix-community/nixvim/nixos-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
