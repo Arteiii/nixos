@@ -102,13 +102,15 @@
 
     displayManager.gdm.wayland = true;
 
+    gnome.evolution-data-server.enable = true;
+    gnome.gnome-online-accounts.enable = true;
+    gnome.gnome-keyring.enable = true;
+
     # gnome virtual file system
     gvfs.enable = true;
 
     gnome.core-developer-tools.enable = true;
     gnome.games.enable = false;
-
-    gnome.gnome-keyring.enable = true;
   };
 
   security = {
@@ -147,6 +149,7 @@
   environment.sessionVariables = {
     GS_ENABLE_GPU_ACCEL = "1";
     GDK_DEBUG = "no-debug";
+    G_NETWORK_MONITOR_OVERRIDE = "base";
   };
 
   systemd = {
