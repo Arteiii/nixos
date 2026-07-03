@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 let
-  flakePath = "/etc/nixos";
+  flakePath = "~/nixos-config";
 
   rebuildScript = action: ''
     (
