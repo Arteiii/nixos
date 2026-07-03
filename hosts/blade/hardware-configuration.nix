@@ -166,12 +166,14 @@
     "/nix" = {
       device = "/dev/mapper/vg0-root";
       fsType = "btrfs";
+      depends = [ "/home" ];
       options = [
         "subvol=@nix"
         "compress=zstd"
+        "bind"
+        "nofail"
         "noatime"
         "x-systemd.device-timeout=infinity"
-
       ];
     };
     "/var/log" = {
