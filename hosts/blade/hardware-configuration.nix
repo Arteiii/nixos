@@ -22,35 +22,38 @@
   };
 
   services.hardware.bolt.enable = true;
-  hardware.graphics.enable = true;
 
-  hardware.nvidia.open = false;
   systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
-  hardware.nvidia = {
-    modesetting.enable = true;
+  hardware = {
+    graphics.enable = true;
 
-    powerManagement = {
-      enable = true;
-      finegrained = true;
-    };
+    nvidia = {
+      open = false;
+      modesetting.enable = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-    prime = {
-      sync.enable = false;
-
-      offload = {
+      powerManagement = {
         enable = true;
-        enableOffloadCmd = true;
+        finegrained = true;
       };
 
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-  };
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
 
-  hardware.cpu.intel.updateMicrocode = true;
+      prime = {
+        sync.enable = false;
+
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
+
+    cpu.intel.updateMicrocode = true;
+  };
 
   boot = {
     initrd = {
