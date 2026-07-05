@@ -6,6 +6,7 @@ let
   rebuildScript = action: ''
     (
       cd ${flakePath} || return
+      export GPG_TTY=$(tty)
       git checkout dev 2>/dev/null || git checkout -b dev
       git add .
       git commit -m "nixos-${action}: auto-commit $(date '+%Y-%m-%d %H:%M:%S')"

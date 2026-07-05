@@ -42,6 +42,12 @@ in
               installation_mode = "force_installed";
             };
 
+            # Cookie-Editor:
+            "{c3c10312-da73-4ac8-b570-8b43ab24c653}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/cookie-editor/latest.xpi";
+              installation_mode = "force_installed";
+            };
+
             # Proton Pass:
             "78272b6fa58f4a1abaac99321d503a20@proton.me" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/proton-pass/latest.xpi";
