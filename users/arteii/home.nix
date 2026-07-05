@@ -18,6 +18,8 @@
     ./email.nix
     ./ssh.nix
     ./gnome.nix
+    ./gpg/gpg.nix
+
     # ./librewolf.nix # out of support for nix
     # ./proton-pass.nix
     ../common/vscode.nix

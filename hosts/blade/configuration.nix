@@ -49,6 +49,15 @@
     ACTION=="add", SUBSYSTEM=="platform", DRIVERS=="razer_laptop_ec", GROUP="wheel", MODE="0660"
   '';
 
+  # enables smart card/YubiKey support (gpg/ssh signing)
+  services.pcscd.enable = true;
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-gnome3;
+    enableSSHSupport = true;
+  };
+
   programs.dconf.enable = true;
 
   programs.dconf.profiles.gdm.databases = [
@@ -402,6 +411,8 @@
     apparmor-parser
     apparmor-profiles
     apparmor-utils
+
+    pinentry-gnome3
 
     _7zz
   ];

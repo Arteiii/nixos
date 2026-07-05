@@ -8,10 +8,16 @@
   programs.git = {
     enable = true;
 
+    signing = {
+      signByDefault = true;
+      format = "openpgp";
+    };
+
     settings = {
       user = {
         name = "Ben Pilger";
         email = "bpilger@sparx.foundation";
+        signingKey = "94BA92822B22C7746900BD0E1A3EA9A6B60C37DA";
       };
 
       sendemail = {
@@ -19,15 +25,9 @@
         smtpserveroption = "-t";
       };
 
-      gpg.format = "ssh";
-      "gpg.ssh".defaultKeyCommand = "ssh-add -L";
-
-      signing = {
-        signByDefault = true;
-      };
-
       commit = {
         gpgsign = true;
+        gpg.program = "${pkgs.gnupg}/bin/gpg";
       };
 
       push = {
