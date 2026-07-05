@@ -43,7 +43,7 @@ in
             };
 
             # Cookie-Editor:
-            "{c3c10312-da73-4ac8-b570-8b43ab24c653}" = {
+            "{cookie-editor@cgagnier.fr}" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/cookie-editor/latest.xpi";
               installation_mode = "force_installed";
             };
