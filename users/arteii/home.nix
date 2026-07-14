@@ -74,6 +74,8 @@
 
     gnomeExtensions.vitals
 
+    google-chrome
+
     _7zz
   ];
 
